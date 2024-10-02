@@ -1,0 +1,13 @@
+#include <iostream>
+using namespace std;
+//class 구현
+#include "Sub.h"
+
+void Sub::setValue(int x, int y){
+    a = x;
+    b = y;
+}
+
+int Sub::calculate(){
+    return a-b;
+}
