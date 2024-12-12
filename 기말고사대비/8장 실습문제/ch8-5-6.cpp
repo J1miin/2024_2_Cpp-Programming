@@ -55,7 +55,40 @@ public:
 	}
 };
 
+class MyStack : protected BaseArray {
+private:
+	int idx, sSize;
+public:
+	MyStack(int capacity) : BaseArray(capacity), idx(0), sSize(0) {}
+	void push(int n) {
+		if (sSize < getCapacity()) {
+			put(idx, n);
+			idx++;
+			sSize++;
+		}
+		else {
+			cout << "스택이 가득 찼습니다!" << endl;
+		}
+	}
+	int capacity() {
+		return getCapacity();
+	}
+	int length() {
+		return sSize;
+	}
+	int pop() {
+		if (sSize == 0) {
+			cout << "스택이 비어 있습니다!" << endl;
+			return -1; 
+		}
+		idx--;
+		int res = get(idx);
+		sSize--;
+		return res;
+	}
+};
 int main() {
+	//5번
 	MyQueue mQ(100);
 	int n;
 	cout << "큐에 삽입할 5개의 정수를 입력하세요 >>";
@@ -69,4 +102,18 @@ int main() {
 		cout << mQ.dequeue() << " ";
 	}
 	cout << endl << "큐의 현재 크기 : " << mQ.length() << endl;
+
+	//6번
+	MyStack mStack(100);
+	cout << "스택에 삽입할 5개의 정수를 입력하세요 >>";
+	for (int i = 0; i < 5; i++) {
+		cin >> n;
+		mStack.push(n);
+	}
+	cout << "스택의 용량 : " << mStack.capacity() << ", 스택의 크기 : " << mStack.length() << endl;
+	cout << "스택의 모든 원소를 팝하여 출력한다 >> ";
+	while (mStack.length() != 0) {
+		cout << mStack.pop() << " ";
+	}
+	cout << endl << "스택의 현재 크기 : " << mStack.length() << endl;
 }
