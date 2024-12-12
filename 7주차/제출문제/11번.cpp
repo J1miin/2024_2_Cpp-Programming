@@ -17,7 +17,7 @@ public:
         }
         return false;
     }
-    Stack operator>> (int& iPopNum){
+    Stack& operator>> (int& iPopNum){
         iPopNum = stack[top-1];
         top--;
         return *this;

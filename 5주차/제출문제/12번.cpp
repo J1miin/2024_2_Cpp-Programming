@@ -9,7 +9,7 @@ public:
         this->size = size;
         scores = new int[size];
     }
-    Dept(Dept& dept){
+    Dept(const Dept& dept){
         this->size=dept.size;
         this->scores = new int[this->size];
         for (int i=0 ; i< this->size ; ++i){
