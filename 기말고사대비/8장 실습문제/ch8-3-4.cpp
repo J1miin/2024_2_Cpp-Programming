@@ -20,7 +20,7 @@ protected:
 class ColorPoint : protected Point {
 	string color;
 public:
-	ColorPoint(int x, int y, string color) : Point(x,y){
+	ColorPoint(int x=0, int y=0, string color="BLACK") : Point(x, y) {
 		this->color = color; 
 	}
 	void setPoint(int x, int y) {
@@ -35,8 +35,17 @@ public:
 };
 
 int main() {
+	//3¹ø
 	ColorPoint cp(5, 5, "RED");
 	cp.setPoint(10, 20);
 	cp.setColor("BLUE");
 	cp.show();
+	//4¹ø
+	ColorPoint zeroPoint;
+	zeroPoint.show();
+
+	ColorPoint cp1(5, 5);
+	cp1.setPoint(10, 20);
+	cp1.setColor("BLUE");
+	cp1.show();
 }
